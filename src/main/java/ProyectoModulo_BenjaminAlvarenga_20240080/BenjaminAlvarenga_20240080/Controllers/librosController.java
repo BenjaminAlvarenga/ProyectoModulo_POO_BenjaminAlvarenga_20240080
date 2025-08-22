@@ -52,7 +52,7 @@ public class librosController {
         }
     }
 
-    @PutMapping("/updateLibro/{ID}")
+    @PutMapping("/updateLibro/{id}")
     public ResponseEntity<?> updateLibro(@PathVariable Long id, @Valid @RequestBody librosDTO json, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             Map<String,String> errores = new HashMap<>();
@@ -72,7 +72,7 @@ public class librosController {
         }
     }
 
-    @DeleteMapping("/deleteLibro/{ID}")
+    @DeleteMapping("/deleteLibro/{id}")
     public ResponseEntity<?> deleteLibro(@PathVariable Long id){
         try{
             if(!service.deleteLibro(id)){
