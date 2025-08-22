@@ -16,7 +16,7 @@ public class autoresEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_autor")
-    @SequenceGenerator(sequenceName = "seq_autor", name = "seq_autor")
+    @SequenceGenerator(sequenceName = "seq_autor", name = "seq_autor", allocationSize = 1)
     @Column(name = "ID")
     private Long id;
     @Column(name = "NOMBRE")

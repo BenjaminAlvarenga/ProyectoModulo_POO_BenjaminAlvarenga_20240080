@@ -13,7 +13,7 @@ public class librosEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_libro")
-    @SequenceGenerator(sequenceName = "seq_libro", name = "seq_libro")
+    @SequenceGenerator(sequenceName = "seq_libro", name = "seq_libro", allocationSize = 1)
     @Column(name = "ID")
     private Long id;
     @Column(name = "TITULO")

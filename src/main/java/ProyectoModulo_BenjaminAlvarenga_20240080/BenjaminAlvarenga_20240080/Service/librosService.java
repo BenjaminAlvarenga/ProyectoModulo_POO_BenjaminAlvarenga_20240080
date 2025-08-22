@@ -5,6 +5,7 @@ import ProyectoModulo_BenjaminAlvarenga_20240080.BenjaminAlvarenga_20240080.Mode
 import ProyectoModulo_BenjaminAlvarenga_20240080.BenjaminAlvarenga_20240080.Repository.librosRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -69,6 +70,22 @@ public class librosService {
         exists.setGenero(json.getGenero());
         exists.setAutor_id(json.getAutor_id());
 
-        librosEntity
+        librosEntity updated = repo.save(exists);
+
+        return convertToLibrosDTO(updated);
+    }
+
+    public boolean deleteLibro(Long id){
+        try{
+            librosEntity exists = repo.findById(id).orElse(null);
+            if(exists != null){
+                repo.deleteById(id);
+                return true;
+            }else{
+                return false;
+            }
+        }catch (EmptyResultDataAccessException e){
+            throw new EmptyResultDataAccessException("Error al eliminar el ID: " + id, 1);
+        }
     }
 }
