@@ -1,0 +1,4 @@
+package ProyectoModulo_BenjaminAlvarenga_20240080.BenjaminAlvarenga_20240080.Repository;
+
+public interface autoresRepository {
+}
